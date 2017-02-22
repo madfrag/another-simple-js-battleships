@@ -1,0 +1,53 @@
+.header-cell{
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.cell-common {
+    width: 30px;
+    height: 30px;
+}
+
+.cell-ship {
+    background-color: green;
+}
+
+[data-state] {
+    vertical-align: middle;
+}
+
+[data-state="killed"],
+[data-state="ship"] {
+    background-color: green;
+}
+
+
+[data-state="injured"]:after,
+[data-state="killed"]:after{
+    font-size: 25px;
+    background-color: grey;
+    content: "\26CC";
+    margin: auto;
+    width: 90%;
+    display: block;
+}
+
+[data-state="empty"],
+[data-state="enemy"] {
+    background-color: grey;
+}
+
+[data-state="miss"] {
+    background-color: grey;
+}
+
+[data-state="miss"]:after {
+    font-size: 25px;
+    background-color: grey;
+    content: "\26AA";
+    margin: auto;
+    width: 90%;
+    display: block;
+}

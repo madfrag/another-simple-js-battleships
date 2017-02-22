@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battle Ships</title>
+    <meta charset="utf-8" />
+    <link href="styles/reset.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
+</head>
+<body class="unselectable">
+    <div class="app">
+        <header class="header">
+            <span class="app-title">Battle Ships v0.6</span>
+        </header>
+        <section class="fields-section">
+            <div class="players-field-wrapper"
+                  id="playersField"
+                  ondrop="MYAPP.dragNDrop.drop(event)"
+                  ondragover="MYAPP.dragNDrop.allowDrop(event)">
+
+                </div>
+            <div class="computer-field-wrapper"
+                  id="computerField"></div>
+            <div class="actions-wrapper">
+                <button type="button"
+                        value="Start"
+                        class="start-button"
+                        id="startButton">Start</button>
+                <button type="button"
+                        value="Reset"
+                        class="reset-button"
+                        id="resetButton">Reset</button>
+                <button type="button"
+                        value="Random"
+                        class="random-button"
+                        id="randomButton">Random</button>
+            </div>
+        </section>
+        <section class="extended-section"
+                  id="extendedSection">
+            <div class="ships-wrapper"
+                  id="shipsWrapper">
+                <h3>
+                  Drag a single ship towards the <em>starting</em> cell or press the "Random" button!
+                </h3>
+                <div class="horizontal-ships"
+                      id="horizontalShips"></div>
+                <div class="vertical-ships"
+                      id="verticalShips"></div>
+            </div>
+            <div class="info-wrapper">
+                <span>Messages</span>
+                <div class="message-wrapper"
+                      id="messageWrapper">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/helpers.js"></script>
+    <script src="scripts/models.js"></script>
+    <script src="scripts/dragAndDrop.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/init.js"></script>
+</body>
+</html>

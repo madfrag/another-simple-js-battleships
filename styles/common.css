@@ -1,0 +1,30 @@
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.hidden{
+   visibility: hidden;
+}
+
+.opacity-05 {
+    opacity: 0.5;
+}
+
+.table {
+    empty-cells: show;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-block{
+    display: block;
+}

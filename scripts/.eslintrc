@@ -1,0 +1,43 @@
+{
+	"extends": "eslint:recommended",
+	"env": {
+		"es6": true,
+		"browser": true,
+		"jasmine": true
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 6
+	},
+	"globals": {
+		"_": true
+	},
+	"rules": {
+		"quotes": [ 2, "single", "avoid-escape" ],
+		"no-use-before-define": [ 2, "nofunc" ],
+		"no-unused-vars": [
+			2,
+			{
+				"vars": "all",
+				"args": "none"
+			}
+		],
+		"no-else-return": 2,
+		"no-extra-parens": 0,
+		"no-unexpected-multiline": 2,
+		"default-case": 2,
+		"dot-location": [ 2, "property" ],
+		"padded-blocks": [ 2, "never" ],
+		"no-throw-literal": 2,
+		"radix": 2,
+		"wrap-iife": [ 2, "outside" ],
+		"brace-style": [
+			2,
+			"stroustrup",
+			{ "allowSingleLine": true }
+		],
+		"comma-style": [ 2, "last" ],
+		"no-mixed-spaces-and-tabs": 2,
+		"semi": [ 2, "always" ]
+	}
+}
