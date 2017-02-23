@@ -24,7 +24,8 @@ var MYAPP = (function (myApp) {
             if (MYAPP.models.aiShipsLeft === 0) {
                 triggerEvent('playerIsWon');
             }
-        } else {
+        } 
+        else {
             map[y][x] = CELL_STATES.injured;
         }
 
@@ -47,7 +48,8 @@ var MYAPP = (function (myApp) {
                         MYAPP.helpers.addMessage(getCoordinateMessage(dx, dy) + ' { Surround neighbor cells === remove cell from possible AI shots } ' + 'cells left: ' + MYAPP.maps.possibleAIShotsLeft.length);
                     }
                 }
-            } else if (map[dy] && map[dy][dx] === CELL_STATES.injured) {
+            } 
+            else if (map[dy] && map[dy][dx] === CELL_STATES.injured) {
                 map[dy][dx] = CELL_STATES.killed;
                 _markAllNeighbors(dx, dy, map, isPlayersMap);
             }
@@ -80,13 +82,15 @@ var MYAPP = (function (myApp) {
                     [-1, 0],
                     [1, 0]
                 ];
-            } else {
+            } 
+            else {
                 neighborsForShotArray = [
                     [0, 1],
                     [0, -1]
                 ];
             }
-        } else {
+        } 
+        else {
             neighborsForShotArray = [
                 [0, 1],
                 [0, -1],
@@ -170,7 +174,8 @@ var MYAPP = (function (myApp) {
 
         if (canPlace) {
             placeShipOnField(randomX, randomY, ship.size, randomDirection, map, field);
-        } else {
+        } 
+        else {
             _tryPlaceShip(ship, map, field);
         }
     }
@@ -288,7 +293,8 @@ var MYAPP = (function (myApp) {
 
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/))) {
             allShipsWrapper.innerHTML = 'Only random ships setting works in IE, sorry for that :(. To be able drag and drop ships please use another browser (Google Chrome for instance)';
-        } else {
+        } 
+        else {
             horizontalShipsContainer.innerHTML = '';
             verticalShipsContainer.innerHTML = '';
             horizontalShips.className = 'ship-list';
@@ -362,13 +368,17 @@ var MYAPP = (function (myApp) {
         currentShip.className += ' opacity-05';
     }
 
-    function canPlaceShipHere(x, y, shipSize, shipDirection, map) {
+    function canPlaceShipHere(x, y, shipSize, shipDirection, map, cellNumber) {
         var dx,
             dy,
             i,
             j,
             canPlace = true;
-
+        
+        if (cellNumber && cellNumber !== 1 && shipSize !== 1){
+            x = shipDirection === DIRECTIONS.horizontal ? x - cellNumber + 1 : x;
+            y = shipDirection === DIRECTIONS.horizontal ? y : y - cellNumber + 1;
+        }
         for (i = 0; i < shipSize; i++) {
             for (j = 0; j < surroundingArray.length; j++) {
                 if (shipDirection === DIRECTIONS.horizontal) {
@@ -434,9 +444,13 @@ var MYAPP = (function (myApp) {
         MYAPP.helpers.addMessage('Your ships were set randomly!', MESSAGE_TYPES.info);
     }
 
-    function placeShipOnField(x, y, size, direction, map, field) {
+    function placeShipOnField(x, y, size, direction, map, field, cellNumber) {
         var i;
 
+        if (cellNumber && cellNumber !== 1 && size !== 1){
+            x = direction === DIRECTIONS.horizontal ? x - cellNumber + 1 : x;
+            y = direction === DIRECTIONS.horizontal ? y : y - cellNumber + 1;
+        }
         map[y][x] = map === MYAPP.maps.playerMap ? CELL_STATES.ship : CELL_STATES.enemy;
         MYAPP.helpers.renderField(map, field);
         for (i = 1; i < size; i++) {
@@ -471,9 +485,11 @@ var MYAPP = (function (myApp) {
                         break;
                 }
                 MYAPP.helpers.renderField(computerMap, computerField);
-            } else if (MYAPP.gameState === GAME_STATES.initialState) {
+            } 
+            else if (MYAPP.gameState === GAME_STATES.initialState) {
                 MYAPP.helpers.addMessage('First set your ships and start the game!', MESSAGE_TYPES.warning);
-            } else if (MYAPP.gameState === GAME_STATES.playerIsReady) {
+            } 
+            else if (MYAPP.gameState === GAME_STATES.playerIsReady) {
                 MYAPP.helpers.addMessage('First press the "Start" button!', MESSAGE_TYPES.warning);
             }
         }
@@ -534,13 +550,15 @@ var MYAPP = (function (myApp) {
                     if (MYAPP.models.playerShipLeft > 0) {
                         window.setTimeout(computerClicks, 500);
                     }
-                } else {
+                } 
+                else {
                     if (!currentInjured) {
                         currentInjured = {
                             x: randomX,
                             y: randomY
                         };
-                    } else {
+                    } 
+                    else {
                         if (currentInjured.x === randomX) {
                             MYAPP.models.currentAIShotingDirection = DIRECTIONS.vertical;
                         }

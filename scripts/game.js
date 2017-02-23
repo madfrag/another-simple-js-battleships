@@ -51,13 +51,13 @@ var MYAPP = (function(myApp) {
     }
 
     function playerIsWon() {
-      MYAPP.helpers.addMessage('You\'ve won! The game is finished! Press the "Reset" button to start a new one!', MESSAGE_TYPES.system);
-      MYAPP.gameState = GAME_STATES.finished;
+        MYAPP.helpers.addMessage('You\'ve won! The game is finished! Press the "Reset" button to start a new one!', MESSAGE_TYPES.system);
+        MYAPP.gameState = GAME_STATES.finished;
     }
 
     function aiIsWon() {
-    MYAPP.helpers.addMessage('You\'ve lost! The game is finished! Press the "Reset" button to start a new one!', MESSAGE_TYPES.system);
-      MYAPP.gameState = GAME_STATES.finished;
+        MYAPP.helpers.addMessage('You\'ve lost! The game is finished! Press the "Reset" button to start a new one!', MESSAGE_TYPES.system);
+        MYAPP.gameState = GAME_STATES.finished;
     }
 
     myApp.game.resetGame = resetGame;
