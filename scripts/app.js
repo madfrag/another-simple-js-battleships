@@ -1,7 +1,7 @@
 'use strict';
 
 var MYAPP = MYAPP || {
-    debugModeOn: false,
+    debugModeOn: true,
     gameState: 0,
     helpers: {},
     game: {},
